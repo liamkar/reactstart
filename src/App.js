@@ -18,7 +18,7 @@ class App extends React.Component {
 App.propTypes = {
   //Note React.PropTypes is deprecated
   txt: PropTypes.string,
-  cat: PropTypes.number
+  cat: PropTypes.number.isRequired
 }
 
 //stateless function component
