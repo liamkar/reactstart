@@ -14,6 +14,13 @@ class App extends React.Component {
     )
   }
 }
+
+App.propTypes = {
+  //Note React.PropTypes is deprecated
+  //txt: React.PropTypes.string,
+  //cat: React.PropTypes.number
+}
+
 //stateless function component
 //const App = () => <h1>Hello</h1>
 export default App;
