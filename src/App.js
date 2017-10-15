@@ -21,6 +21,10 @@ App.propTypes = {
   cat: PropTypes.number.isRequired
 }
 
+App.defaultProps = {
+  txt:"this is the default text"
+}
+
 //stateless function component
 //const App = () => <h1>Hello</h1>
 export default App;
