@@ -3,11 +3,13 @@ import React from 'react';
 
 class App extends React.Component {
   render() {
+    let txt = this.props.txt;
     return  (
+
     <div>
       <h1>Hello world</h1>
       <b>Bold</b>
-      <p>{this.props.txt}</p>
+      <p>{txt}</p>
     </div>
     )
   }
