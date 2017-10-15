@@ -7,6 +7,7 @@ class App extends React.Component {
     <div>
       <h1>Hello world</h1>
       <b>Bold</b>
+      <p>{this.props.txt}</p>
     </div>
     )
   }
