@@ -1,6 +1,6 @@
 //import React, { Component } from 'react';
 import React from 'react';
-
+import PropTypes from 'prop-types';
 class App extends React.Component {
   render() {
     let txt = this.props.txt;
@@ -17,8 +17,8 @@ class App extends React.Component {
 
 App.propTypes = {
   //Note React.PropTypes is deprecated
-  //txt: React.PropTypes.string,
-  //cat: React.PropTypes.number
+  txt: PropTypes.string,
+  cat: PropTypes.number
 }
 
 //stateless function component
