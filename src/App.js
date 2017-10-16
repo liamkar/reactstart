@@ -1,12 +1,18 @@
 //import React, { Component } from 'react';
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactDOM from 'react-dom';
+
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       txt: 'this is the state txt',
-      currentEvent: '---'
+      currentEvent: '---',
+      a:'',
+      b:'',
+      c:'',
+      d:''
     }
     this.updateEventInfo = this.updateEventInfo.bind(this)
   }
@@ -16,6 +22,15 @@ class App extends React.Component {
 
   updateEventInfo(e) {
     this.setState({currentEvent: e.type})
+  }
+  updateRef(e) {
+    this.setState({
+      a: this.refs.a.value,
+      b: this.refs.b.value,
+      c: this.c.value,
+      //d: ReactDOM.findDOMNode(this.d).value
+      d: this.d.refs.input.value
+    })
   }
 
   render() {
@@ -44,6 +59,29 @@ class App extends React.Component {
       cols="30"
       rows="10"/>
       <h1>{this.state.currentEvent}</h1>
+
+      <input
+        ref="a"
+        type="text"
+        onChange={this.updateRef.bind(this)}
+      />{this.state.a}
+      <hr/>
+      <input
+        ref="b"
+        type="text"
+        onChange={this.updateRef.bind(this)}
+      />{this.state.b}
+      <hr/>
+      <input
+        ref={ node => this.c = node}
+        type="text"
+        onChange={this.updateRef.bind(this)}
+      />{this.state.c}
+      <hr/>
+      <Input
+        ref={ component => this.d = component}
+        update={this.updateRef.bind(this)}
+      />{this.state.d}
     </div>
     )
 
@@ -81,6 +119,12 @@ Title.propTypes = {
 class Heart extends React.Component {
   render() {
     return <span>&hearts;</span>
+  }
+}
+
+class Input extends React.Component {
+  render() {
+    return <div><input ref="input" type="text" onChange={this.props.update}/></div>
   }
 }
 
