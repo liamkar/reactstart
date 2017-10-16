@@ -5,11 +5,17 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      txt: 'this is the state txt'
+      txt: 'this is the state txt',
+      currentEvent: '---'
     }
+    this.updateEventInfo = this.updateEventInfo.bind(this)
   }
   update (e) {
     this.setState({txt: e.target.value})
+  }
+
+  updateEventInfo(e) {
+    this.setState({currentEvent: e.type})
   }
 
   render() {
@@ -24,6 +30,20 @@ class App extends React.Component {
       <p>{this.state.txt}</p>
       <Button><Heart/>React</Button>
       <Title text="the t"/>
+      <textarea
+      onKeyPress={this.updateEventInfo}
+      onCopy={this.updateEventInfo}
+      onCut={this.updateEventInfo}
+      onPaste={this.updateEventInfo}
+      onFocus={this.updateEventInfo}
+      onBlur={this.updateEventInfo}
+      onDoubleClick={this.updateEventInfo}
+      onTouchStart={this.updateEventInfo}
+      onToucMove={this.updateEventInfo}
+      onTouchEnd={this.updateEventInfo}
+      cols="30"
+      rows="10"/>
+      <h1>{this.state.currentEvent}</h1>
     </div>
     )
 
@@ -57,7 +77,6 @@ Title.propTypes = {
     }
   }
 }
-
 
 class Heart extends React.Component {
   render() {
